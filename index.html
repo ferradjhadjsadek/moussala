@@ -1,0 +1,1044 @@
+html
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="مصلى المؤنسات الغاليات - الإقامة الجامعية شمومة للبنات، مستغانم. فضاء إيماني يجمعنا على الإخلاص والمحبة والجنان.">
+  <meta name="theme-color" content="#fbf6ea" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#16120e" media="(prefers-color-scheme: dark)">
+  <title>مصلى المؤنسات الغاليات | الإقامة الجامعية شمومة للبنات</title>
+
+  <!-- Google Fonts: Amiri & Cairo with offline fallback -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-main: #fbf6ea;
+      --bg-card: #ffffff;
+      --bg-card-subtle: #f7eed9;
+      --text-main: #1c1710;
+      --text-muted: #5e5241;
+      --gold-primary: #b8913a;
+      --gold-dark: #8a6a22;
+      --gold-light: #dfc176;
+      --gold-glow: rgba(184, 145, 58, 0.18);
+      --border-gold: rgba(184, 145, 58, 0.35);
+      --border-subtle: rgba(184, 145, 58, 0.18);
+      --shadow-soft: 0 4px 20px rgba(138, 106, 34, 0.08);
+      --shadow-hover: 0 8px 28px rgba(138, 106, 34, 0.16);
+      --nav-bg: rgba(251, 246, 234, 0.92);
+      --pill-inactive-bg: #ede4d0;
+      --pill-inactive-text: #453b2f;
+      --pill-active-bg: #b8913a;
+      --pill-active-text: #ffffff;
+      --radius-sm: 10px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-pill: 9999px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-main: #16120e;
+        --bg-card: #221b14;
+        --bg-card-subtle: #2b231a;
+        --text-main: #fbf6ea;
+        --text-muted: #c9bda9;
+        --gold-primary: #d6b058;
+        --gold-dark: #b8913a;
+        --gold-light: #f0d58c;
+        --gold-glow: rgba(214, 176, 88, 0.22);
+        --border-gold: rgba(214, 176, 88, 0.4);
+        --border-subtle: rgba(214, 176, 88, 0.2);
+        --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.45);
+        --shadow-hover: 0 8px 28px rgba(214, 176, 88, 0.2);
+        --nav-bg: rgba(22, 18, 14, 0.94);
+        --pill-inactive-bg: #2b231a;
+        --pill-inactive-text: #d6cbba;
+        --pill-active-bg: #d6b058;
+        --pill-active-text: #16120e;
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      font-family: 'Cairo', 'Traditional Arabic', 'Tahoma', sans-serif;
+      line-height: 1.7;
+      text-align: right;
+      padding-top: env(safe-area-inset-top);
+      padding-bottom: env(safe-area-inset-bottom);
+      padding-left: env(safe-area-inset-left);
+      padding-right: env(safe-area-inset-right);
+      position: relative;
+      overflow-x: hidden;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .hero-backdrop {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 380px;
+      pointer-events: none;
+      z-index: 0;
+      background: radial-gradient(circle at 50% 15%, var(--gold-glow) 0%, transparent 75%),
+                  linear-gradient(180deg, var(--gold-glow) 0%, transparent 100%);
+      opacity: 0.85;
+    }
+
+    .ambient-particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.6;
+    }
+
+    .particle {
+      animation: float-particle 9s infinite ease-in-out alternate;
+    }
+
+    .particle:nth-child(2) { animation-duration: 12s; animation-delay: 2s; }
+    .particle:nth-child(3) { animation-duration: 8s; animation-delay: 4s; }
+    .particle:nth-child(4) { animation-duration: 14s; animation-delay: 1s; }
+
+    @keyframes float-particle {
+      0% { transform: translateY(0) scale(1); opacity: 0.3; }
+      50% { transform: translateY(-12px) scale(1.15); opacity: 0.8; }
+      100% { transform: translateY(-24px) scale(0.9); opacity: 0.2; }
+    }
+
+    .container {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 0 16px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .header-wrapper {
+      padding: 24px 0 16px;
+      text-align: center;
+      position: relative;
+    }
+
+    .residence-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 16px;
+      background-color: var(--bg-card-subtle);
+      border: 1px solid var(--border-gold);
+      border-radius: var(--radius-pill);
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--gold-dark);
+      margin-bottom: 16px;
+      box-shadow: 0 2px 10px var(--gold-glow);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .residence-badge {
+        color: var(--gold-light);
+      }
+    }
+
+    .logo-container {
+      margin: 0 auto 12px;
+      width: 170px;
+      height: 170px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      filter: drop-shadow(0 6px 16px rgba(184, 145, 58, 0.28));
+      animation: gentle-float 6s ease-in-out infinite alternate;
+    }
+
+    @keyframes gentle-float {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-4px); }
+    }
+
+    .logo-svg {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .site-title {
+      font-family: 'Amiri', serif;
+      font-size: 1.95rem;
+      font-weight: 700;
+      color: var(--text-main);
+      line-height: 1.25;
+      margin-bottom: 4px;
+    }
+
+    .site-motto {
+      font-size: 0.98rem;
+      color: var(--gold-dark);
+      font-weight: 700;
+      letter-spacing: 0.6px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .site-motto {
+        color: var(--gold-light);
+      }
+    }
+
+    .sticky-nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: var(--nav-bg);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 10px 0;
+      margin-bottom: 22px;
+    }
+
+    .nav-scroll {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 4px 4px 6px;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x mandatory;
+    }
+
+    .nav-scroll::-webkit-scrollbar {
+      display: none;
+    }
+
+    .nav-pill {
+      flex: 0 0 auto;
+      scroll-snap-align: center;
+      border: 1px solid var(--border-subtle);
+      background-color: var(--pill-inactive-bg);
+      color: var(--pill-inactive-text);
+      padding: 9px 18px;
+      min-height: 44px;
+      border-radius: var(--radius-pill);
+      font-family: 'Cairo', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .nav-pill:hover {
+      border-color: var(--gold-primary);
+      transform: translateY(-1px);
+    }
+
+    .nav-pill.active {
+      background-color: var(--pill-active-bg);
+      color: var(--pill-active-text);
+      border-color: var(--gold-primary);
+      box-shadow: 0 4px 14px var(--gold-glow);
+    }
+
+    .tab-content {
+      display: none;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .tab-content.active {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-gold);
+      border-radius: var(--radius-lg);
+      padding: 22px 20px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+      transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .card:hover {
+      box-shadow: var(--shadow-hover);
+      border-color: var(--gold-primary);
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+      opacity: 0.8;
+    }
+
+    .card-title {
+      font-family: 'Amiri', serif;
+      font-size: 1.48rem;
+      font-weight: 700;
+      color: var(--gold-dark);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .card-title {
+        color: var(--gold-light);
+      }
+    }
+
+    .card-title .ornament {
+      color: var(--gold-primary);
+      font-size: 1.15rem;
+    }
+
+    .verse-banner {
+      background: linear-gradient(135deg, var(--bg-card-subtle) 0%, var(--bg-card) 100%);
+      border: 1px solid var(--gold-primary);
+      border-radius: var(--radius-lg);
+      padding: 24px 20px;
+      text-align: center;
+      margin-bottom: 22px;
+      position: relative;
+      box-shadow: 0 4px 22px var(--gold-glow);
+    }
+
+    .verse-text {
+      font-family: 'Amiri', serif;
+      font-size: 1.55rem;
+      font-weight: 700;
+      line-height: 2.15;
+      color: var(--text-main);
+      margin: 6px 0;
+    }
+
+    .verse-reference {
+      font-size: 0.9rem;
+      color: var(--gold-dark);
+      font-weight: 700;
+      margin-top: 6px;
+      display: inline-block;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .verse-reference {
+        color: var(--gold-light);
+      }
+    }
+
+    .hadith-quote {
+      font-family: 'Amiri', serif;
+      font-size: 1.45rem;
+      line-height: 2;
+      font-weight: 700;
+      color: var(--text-main);
+      text-align: center;
+      padding: 18px 16px;
+      background-color: var(--bg-card-subtle);
+      border-radius: var(--radius-md);
+      border-right: 4px solid var(--gold-primary);
+      margin-bottom: 20px;
+    }
+
+    .hadith-ref {
+      display: block;
+      font-family: 'Cairo', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--gold-dark);
+      margin-top: 8px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .hadith-ref {
+        color: var(--gold-light);
+      }
+    }
+
+    .verse-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .verse-item {
+      padding: 14px 16px;
+      border-radius: var(--radius-md);
+      background-color: var(--bg-card-subtle);
+      border-right: 3px solid var(--gold-primary);
+    }
+
+    .verse-item p {
+      font-family: 'Amiri', serif;
+      font-size: 1.28rem;
+      line-height: 2;
+      color: var(--text-main);
+      margin-bottom: 4px;
+    }
+
+    .verse-item .ref {
+      font-size: 0.85rem;
+      color: var(--gold-dark);
+      font-weight: 700;
+      display: block;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .verse-item .ref {
+        color: var(--gold-light);
+      }
+    }
+
+    .btn-gold {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      min-height: 52px;
+      padding: 12px 24px;
+      background: linear-gradient(135deg, var(--gold-primary) 0%, var(--gold-dark) 100%);
+      color: #ffffff;
+      border: none;
+      border-radius: var(--radius-pill);
+      font-family: 'Cairo', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      box-shadow: 0 4px 18px var(--gold-glow);
+      transition: all 0.25s ease;
+    }
+
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(184, 145, 58, 0.35);
+      filter: brightness(1.06);
+    }
+
+    .btn-gold:active {
+      transform: translateY(0);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      min-height: 52px;
+      padding: 12px 20px;
+      background-color: var(--bg-card);
+      color: var(--gold-dark);
+      border: 1.5px solid var(--gold-primary);
+      border-radius: var(--radius-pill);
+      font-family: 'Cairo', sans-serif;
+      font-size: 1.02rem;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      box-shadow: var(--shadow-soft);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .btn-outline {
+        color: var(--gold-light);
+      }
+    }
+
+    .btn-outline:hover {
+      background-color: var(--bg-card-subtle);
+      border-color: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .social-btn-content {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .social-icon-wrapper {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-card-subtle);
+      border: 1px solid var(--border-gold);
+      flex-shrink: 0;
+    }
+
+    .social-icon {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+
+    .activities-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    @media (min-width: 480px) {
+      .activities-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .activity-card {
+      background-color: var(--bg-card-subtle);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 18px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .activity-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--gold-primary);
+    }
+
+    .activity-icon {
+      font-size: 1.6rem;
+      line-height: 1;
+    }
+
+    .activity-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--text-main);
+    }
+
+    .activity-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    .info-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 16px 0 20px;
+    }
+
+    .info-tag {
+      background-color: var(--bg-card-subtle);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-pill);
+      padding: 6px 14px;
+      font-size: 0.88rem;
+      color: var(--text-main);
+      font-weight: 600;
+    }
+
+    .svg-illustration-wrapper {
+      text-align: center;
+      padding: 10px 0 18px;
+    }
+
+    .svg-illustration {
+      max-width: 100%;
+      height: auto;
+      filter: drop-shadow(0 4px 10px var(--gold-glow));
+    }
+
+    .site-footer {
+      text-align: center;
+      padding: 30px 16px 40px;
+      margin-top: 30px;
+      border-top: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .footer-highlight {
+      font-weight: 700;
+      color: var(--gold-dark);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .footer-highlight {
+        color: var(--gold-light);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero-backdrop" aria-hidden="true"></div>
+
+  <svg class="ambient-particles" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <circle class="particle" cx="12%" cy="18%" r="2" fill="#b8913a" />
+    <circle class="particle" cx="88%" cy="22%" r="1.8" fill="#dfc176" />
+    <circle class="particle" cx="22%" cy="58%" r="2.2" fill="#b8913a" />
+    <circle class="particle" cx="78%" cy="72%" r="1.6" fill="#dfc176" />
+  </svg>
+
+  <div class="container">
+    <header class="header-wrapper">
+      <div class="residence-badge">
+        <span>🕌</span>
+        <span>الإقامة الجامعية شمومة للبنات · مستغانم</span>
+      </div>
+
+      <div class="logo-container">
+        <!-- Official emblem vector representation -->
+        <svg class="logo-svg" viewBox="0 0 400 400" width="170" height="170" aria-label="شعار مصلى المؤنسات الغاليات">
+          <defs>
+            <linearGradient id="goldArch" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#b8913a" />
+              <stop offset="100%" stop-color="#8a6a22" />
+            </linearGradient>
+            <linearGradient id="crownGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#dfc176" />
+              <stop offset="100%" stop-color="#b8913a" />
+            </linearGradient>
+          </defs>
+
+          <!-- Outer decorative arch -->
+          <path d="M55,240 C55,85 345,85 345,240" fill="none" stroke="url(#goldArch)" stroke-width="2.5" stroke-dasharray="5 3"/>
+          <path d="M72,230 C72,105 328,105 328,230" fill="none" stroke="url(#goldArch)" stroke-width="1.5"/>
+
+          <!-- Floral/star accents around arch -->
+          <g fill="#b8913a" opacity="0.85">
+            <circle cx="200" cy="74" r="5"/>
+            <circle cx="150" cy="88" r="4"/>
+            <circle cx="250" cy="88" r="4"/>
+            <circle cx="108" cy="120" r="3.5"/>
+            <circle cx="292" cy="120" r="3.5"/>
+            <circle cx="78" cy="168" r="3"/>
+            <circle cx="322" cy="168" r="3"/>
+          </g>
+
+          <!-- Silhouette of girl with hijab -->
+          <path d="M165,150 C172,138 182,128 200,128 C218,128 228,138 235,150 C237,160 240,172 245,190 C252,215 250,245 252,270 C230,265 170,265 148,270 C150,245 148,215 155,190 C160,172 163,160 165,150 Z" fill="#1c1710"/>
+          
+          <!-- Silhouette face profile highlight -->
+          <path d="M168,165 C164,170 160,176 156,182 C154,185 152,192 154,196 C156,200 160,204 163,208" fill="none" stroke="#1c1710" stroke-width="2"/>
+
+          <!-- Tiara/Crown on top of head -->
+          <path d="M182,136 L188,122 L194,133 L200,118 L206,133 L212,122 L218,136 Z" fill="url(#crownGrad)"/>
+          <circle cx="200" cy="116" r="2.5" fill="#dfc176"/>
+          <circle cx="188" cy="120" r="1.8" fill="#dfc176"/>
+          <circle cx="212" cy="120" r="1.8" fill="#dfc176"/>
+
+          <!-- Words: إخلاص، محبة، جنان -->
+          <text x="200" y="100" font-family="'Amiri', 'Traditional Arabic', serif" font-size="25" font-weight="bold" fill="#1c1710" text-anchor="middle">إخلاص</text>
+          <text x="305" y="196" font-family="'Amiri', 'Traditional Arabic', serif" font-size="23" font-weight="bold" fill="#1c1710" text-anchor="middle">محبة</text>
+          <text x="95" y="196" font-family="'Amiri', 'Traditional Arabic', serif" font-size="23" font-weight="bold" fill="#1c1710" text-anchor="middle">جنان</text>
+
+          <!-- Banner at bottom -->
+          <path d="M50,340 L120,310 L280,310 L350,340 L280,370 L120,370 Z" fill="none" stroke="url(#goldArch)" stroke-width="2.5"/>
+          <path d="M60,340 L125,316 L275,316 L340,340 L275,364 L125,364 Z" fill="none" stroke="url(#goldArch)" stroke-width="1"/>
+          <text x="200" y="348" font-family="'Amiri', 'Traditional Arabic', serif" font-size="23" font-weight="bold" fill="#1c1710" text-anchor="middle">مصلى المؤنسات الغاليات</text>
+        </svg>
+      </div>
+
+      <h1 class="site-title">مصلى المؤنسات الغاليات</h1>
+      <p class="site-motto">إخلاص · محبة · جنان</p>
+    </header>
+
+    <nav class="sticky-nav" aria-label="أقسام الموقع">
+      <div class="nav-scroll" role="tablist">
+        <button class="nav-pill active" role="tab" aria-selected="true" data-tab="tab-home" id="btn-home">
+          <span>الرئيسية</span>
+        </button>
+        <button class="nav-pill" role="tab" aria-selected="false" data-tab="tab-about" id="btn-about">
+          <span>من نحن</span>
+        </button>
+        <button class="nav-pill" role="tab" aria-selected="false" data-tab="tab-activities" id="btn-activities">
+          <span>الأنشطة</span>
+        </button>
+        <button class="nav-pill" role="tab" aria-selected="false" data-tab="tab-register" id="btn-register">
+          <span>التسجيل</span>
+        </button>
+        <button class="nav-pill" role="tab" aria-selected="false" data-tab="tab-contact" id="btn-contact">
+          <span>اتصلي بنا</span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Home Tab -->
+    <section id="tab-home" class="tab-content active" role="tabpanel" aria-labelledby="btn-home">
+      <div class="verse-banner">
+        <p class="verse-text">﴿ وَأَقِمِ الصَّلَاةَ إِنَّ الصَّلَاةَ تَنْهَىٰ عَنِ الْفَحْشَاءِ وَالْمُنكَرِ ﴾</p>
+        <span class="verse-reference">[العنكبوت: 45]</span>
+      </div>
+
+      <div class="svg-illustration-wrapper" aria-hidden="true">
+        <svg class="svg-illustration" viewBox="0 0 340 160" width="300" height="140" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="20" y1="145" x2="320" y2="145" stroke="var(--gold-primary)" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="40" y1="150" x2="300" y2="150" stroke="var(--gold-primary)" stroke-width="1.5" stroke-linecap="round"/>
+          
+          <rect x="95" y="80" width="150" height="65" rx="4" fill="var(--bg-card-subtle)" stroke="var(--gold-primary)" stroke-width="1.8"/>
+          <path d="M115,80 C115,25 225,25 225,80 Z" fill="var(--bg-card-subtle)" stroke="var(--gold-primary)" stroke-width="2"/>
+          
+          <line x1="170" y1="25" x2="170" y2="10" stroke="var(--gold-primary)" stroke-width="2"/>
+          <path d="M174,10 A5,5 0 1,1 168,5 A6.5,6.5 0 1,0 174,10 Z" fill="var(--gold-primary)"/>
+
+          <path d="M150,145 V110 C150,98 190,98 190,110 V145 Z" fill="var(--gold-glow)" stroke="var(--gold-primary)" stroke-width="1.6"/>
+          <path d="M125,120 V105 C125,98 140,98 140,105 V120 Z" fill="none" stroke="var(--gold-primary)" stroke-width="1.2"/>
+          <path d="M200,120 V105 C200,98 215,98 215,105 V120 Z" fill="none" stroke="var(--gold-primary)" stroke-width="1.2"/>
+
+          <!-- Left Minaret -->
+          <rect x="65" y="45" width="22" height="100" fill="var(--bg-card-subtle)" stroke="var(--gold-primary)" stroke-width="1.8"/>
+          <path d="M62,45 L76,15 L90,45 Z" fill="var(--bg-card-subtle)" stroke="var(--gold-primary)" stroke-width="1.8"/>
+          <line x1="76" y1="15" x2="76" y2="5" stroke="var(--gold-primary)" stroke-width="1.8"/>
+          <circle cx="76" cy="5" r="2.5" fill="var(--gold-primary)"/>
+          <line x1="65" y1="75" x2="87" y2="75" stroke="var(--gold-primary)" stroke-width="1.5"/>
+          <line x1="65" y1="105" x2="87" y2="105" stroke="var(--gold-primary)" stroke-width="1.5"/>
+          <rect x="72" y="85" width="8" height="14" rx="4" fill="var(--gold-glow)" stroke="var(--gold-primary)" stroke-width="1"/>
+
+          <!-- Right Minaret -->
+          <rect x="253" y="45" width="22" height="100" fill="var(--bg-card-subtle)" stroke="var(--gold-primary)" stroke-width="1.8"/>
+          <path d="M250,45 L264,15 L278,45 Z" fill="var(--bg-card-subtle)" stroke="var(--gold-primary)" stroke-width="1.8"/>
+          <line x1="264" y1="15" x2="264" y2="5" stroke="var(--gold-primary)" stroke-width="1.8"/>
+          <circle cx="264" cy="5" r="2.5" fill="var(--gold-primary)"/>
+          <line x1="253" y1="75" x2="275" y2="75" stroke="var(--gold-primary)" stroke-width="1.5"/>
+          <line x1="253" y1="105" x2="275" y2="105" stroke="var(--gold-primary)" stroke-width="1.5"/>
+          <rect x="260" y="85" width="8" height="14" rx="4" fill="var(--gold-glow)" stroke="var(--gold-primary)" stroke-width="1"/>
+        </svg>
+      </div>
+
+      <article class="card">
+        <h2 class="card-title">
+          <span class="ornament">❀</span>
+          <span>أهلاً بكِ أختي الغالية</span>
+        </h2>
+        <p style="font-size: 1.05rem; line-height: 1.85;">
+          مصلى المؤنسات الغاليات فضاء إيماني لطالبات الإقامة الجامعية، يجمعنا على الإخلاص والمحبة والجنان: نصلّي، نتعلّم، ونتذاكر كتاب الله معاً.
+        </p>
+      </article>
+
+      <article class="card">
+        <h2 class="card-title">
+          <span class="ornament">📖</span>
+          <span>من هدي القرآن</span>
+        </h2>
+        <div class="verse-list">
+          <div class="verse-item">
+            <p>﴿ إِنَّ الصَّلَاةَ كَانَتْ عَلَى الْمُؤْمِنِينَ كِتَابًا مَّوْقُوتًا ﴾</p>
+            <span class="ref">[النساء: 103]</span>
+          </div>
+          <div class="verse-item">
+            <p>﴿ وَرَتِّلِ الْقُرْآنَ تَرْتِيلًا ﴾</p>
+            <span class="ref">[المزمل: 4]</span>
+          </div>
+          <div class="verse-item">
+            <p>﴿ إِنَّ هَٰذَا الْقُرْآنَ يَهْدِي لِلَّتِي هِيَ أَقْوَمُ ﴾</p>
+            <span class="ref">[الإسراء: 9]</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" style="text-align: center;">
+        <h2 class="card-title" style="justify-content: center;">
+          <span class="ornament">✨</span>
+          <span>انضمّي إلينا</span>
+        </h2>
+        <p style="margin-bottom: 20px; font-size: 1rem;">
+          يسعدنا انضمامكِ لبرامج وحلقات المصلى لتكوني في رفقة طيبة تسعى معاً نحو الخير والارتقاء.
+        </p>
+        <button class="btn-gold" onclick="switchTab('tab-register')">
+          <span>سجّلي الآن</span>
+          <span>←</span>
+        </button>
+      </article>
+    </section>
+
+    <!-- About Tab -->
+    <section id="tab-about" class="tab-content" role="tabpanel" aria-labelledby="btn-about">
+      <article class="card">
+        <h2 class="card-title">
+          <span class="ornament">🌸</span>
+          <span>من نحن</span>
+        </h2>
+        <p style="margin-bottom: 14px; font-size: 1.05rem;">
+          مصلى المؤنسات الغاليات هو فضاء إيماني ومصلى خاص بالطالبات في <strong>الإقامة الجامعية شمومة للبنات</strong> بولاية مستغانم.
+        </p>
+        <p style="margin-bottom: 14px; font-size: 1.05rem;">
+          <strong>شعارنا:</strong> إخلاص، محبة، جنان.
+        </p>
+        <p style="font-size: 1.05rem;">
+          <strong>أهدافنا:</strong> توفير بيئة إيمانية هادئة ونقية تُعين الطالبات على أداء الصلاة والالتزام بها، وحفظ وتدبّر كتاب الله الكريم، وطلب العلم النافع، وتعزيز روح الأخوّة الصادقة بين الأخوات في الإقامة الجامعية.
+        </p>
+      </article>
+
+      <article class="card">
+        <h2 class="card-title">
+          <span class="ornament">💎</span>
+          <span>قيمنا</span>
+        </h2>
+        <div style="background-color: var(--bg-card-subtle); padding: 18px; border-radius: var(--radius-md); border-right: 4px solid var(--gold-primary);">
+          <p style="font-size: 1.15rem; font-weight: 700; line-height: 1.9; color: var(--text-main);">
+            الإخلاص لله، المحبة بين الأخوات، وجنّة نسعى إليها معاً بالعمل الصالح.
+          </p>
+        </div>
+      </article>
+    </section>
+
+    <!-- Activities Tab -->
+    <section id="tab-activities" class="tab-content" role="tabpanel" aria-labelledby="btn-activities">
+      <div class="svg-illustration-wrapper" aria-hidden="true">
+        <svg class="svg-illustration" viewBox="0 0 320 160" width="280" height="140" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M70,140 L160,88 L250,140" stroke="var(--gold-dark)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M100,140 L160,95 L220,140" stroke="var(--gold-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="160" cy="92" r="4" fill="var(--gold-primary)"/>
+
+          <path d="M160,88 C195,78 245,68 275,76 L270,30 C240,22 195,30 160,40 Z" fill="var(--bg-card-subtle)" stroke="var(--gold-primary)" stroke-width="2"/>
+          <path d="M160,88 C125,78 75,68 45,76 L50,30 C80,22 125,30 160,40 Z" fill="var(--bg-card-subtle)" stroke="var(--gold-primary)" stroke-width="2"/>
+
+          <path d="M68,43 C95,37 130,42 148,48" stroke="var(--gold-dark)" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M64,55 C92,49 130,54 148,60" stroke="var(--gold-dark)" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M68,67 C95,61 130,66 148,72" stroke="var(--gold-dark)" stroke-width="1.8" stroke-linecap="round"/>
+
+          <path d="M172,48 C190,42 225,37 252,43" stroke="var(--gold-dark)" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M172,60 C190,54 228,49 256,55" stroke="var(--gold-dark)" stroke-width="1.8" stroke-linecap="round"/>
+          <path d="M172,72 C190,66 225,61 252,67" stroke="var(--gold-dark)" stroke-width="1.8" stroke-linecap="round"/>
+
+          <line x1="160" y1="40" x2="160" y2="88" stroke="var(--gold-primary)" stroke-width="2.5"/>
+          <path d="M160,88 C163,105 155,120 164,135" stroke="var(--gold-primary)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        </svg>
+      </div>
+
+      <div class="hadith-quote">
+        «خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ»
+        <span class="hadith-ref">(رواه البخاري)</span>
+      </div>
+
+      <div class="activities-grid">
+        <div class="activity-card">
+          <span class="activity-icon">🕌</span>
+          <h3 class="activity-title">الصلوات الجماعية</h3>
+          <p class="activity-desc">أداء الصلوات المفروضة معاً وتثبيت سنة الجماعة في جو من الخشوع والسكينة.</p>
+        </div>
+
+        <div class="activity-card">
+          <span class="activity-icon">📖</span>
+          <h3 class="activity-title">حلقات القرآن الكريم</h3>
+          <p class="activity-desc">حفظ ومراجعة وتجويد لكتاب الله بإشراف وتسميع بين الأخوات وفق مستويات مختلفة.</p>
+        </div>
+
+        <div class="activity-card">
+          <span class="activity-icon">💡</span>
+          <h3 class="activity-title">دروس ومحاضرات</h3>
+          <p class="activity-desc">جلسات نافعة في الفقه الميسّر، السيرة النبوية العطرة، وتزكية النفوس وبناء الشخصية.</p>
+        </div>
+
+        <div class="activity-card">
+          <span class="activity-icon">🌙</span>
+          <h3 class="activity-title">مسابقات وبرامج رمضانية</h3>
+          <p class="activity-desc">أنشطة تفاعلية ومسابقات دينية وثقافية وبرامج موسمية متميزة في شهر رمضان المبارك.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Register Tab -->
+    <section id="tab-register" class="tab-content" role="tabpanel" aria-labelledby="btn-register">
+      <article class="card">
+        <h2 class="card-title">
+          <span class="ornament">📝</span>
+          <span>التسجيل في أنشطة المصلى</span>
+        </h2>
+        <p style="font-size: 1.05rem; line-height: 1.85;">
+          نرحب بكل طالبة ترغب في الاستفادة من حلقات القرآن والبرامج الإيمانية للمصلى. يُرجى ملء استمارة التسجيل الرسمية بالمعلومات التالية:
+        </p>
+
+        <div class="info-tags" aria-label="البيانات المطلوبة للتسجيل">
+          <span class="info-tag">الاسم</span>
+          <span class="info-tag">اللقب</span>
+          <span class="info-tag">السن</span>
+          <span class="info-tag">التخصص</span>
+          <span class="info-tag">السنة الدراسية</span>
+          <span class="info-tag">رقم الهاتف</span>
+          <span class="info-tag">البريد الإلكتروني</span>
+        </div>
+
+        <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 24px;">
+          يتم حفظ بياناتكِ بأمان واستخدامها فقط لتنظيم الحلقات وجداول الأنشطة داخل الإقامة.
+        </p>
+
+        <a href="https://docs.google.com/forms/d/1j1r7R0bcBenxfZGq_viTRkjeqr7-J9mH8M8nq-IcVyo/viewform" 
+           target="_blank" 
+           rel="noopener" 
+           class="btn-gold" 
+           style="font-size: 1.12rem;">
+          <span>سجّلي الآن (فتح استمارة التسجيل)</span>
+          <span>↗</span>
+        </a>
+      </article>
+    </section>
+
+    <!-- Contact Tab -->
+    <section id="tab-contact" class="tab-content" role="tabpanel" aria-labelledby="btn-contact">
+      <article class="card">
+        <h2 class="card-title">
+          <span class="ornament">📍</span>
+          <span>الموقع والاستفسار</span>
+        </h2>
+        <p style="font-size: 1.05rem; line-height: 1.85; margin-bottom: 12px;">
+          الإقامة الجامعية شمومة للبنات، مستغانم.
+        </p>
+        <p style="font-size: 1.05rem; line-height: 1.85; color: var(--text-muted);">
+          للاستفسار تواصلي مع مشرفات المصلى داخل الإقامة.
+        </p>
+      </article>
+
+      <article class="card">
+        <h2 class="card-title">
+          <span class="ornament">📲</span>
+          <span>تابعينا</span>
+        </h2>
+        <p style="margin-bottom: 18px; font-size: 0.98rem;">
+          تابعي إعلانات الأنشطة ومواعيد الحلقات وجديد المصلى عبر صفحاتنا على منصات التواصل الاجتماعي:
+        </p>
+
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <!-- Instagram Button with Official Logo -->
+          <a href="https://www.instagram.com/mousala_elmouenisat_lghaliyat" 
+             target="_blank" 
+             rel="noopener" 
+             class="btn-outline">
+            <span class="social-btn-content">
+              <span class="social-icon-wrapper">
+                <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+              </span>
+              <span>صفحتنا على إنستغرام</span>
+            </span>
+            <span style="font-size: 1.1rem; opacity: 0.85;">↗</span>
+          </a>
+
+          <!-- Facebook Button with Official Logo -->
+          <a href="https://www.facebook.com/share/1GxF2tqKZX/" 
+             target="_blank" 
+             rel="noopener" 
+             class="btn-outline">
+            <span class="social-btn-content">
+              <span class="social-icon-wrapper">
+                <svg class="social-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+              </span>
+              <span>صفحتنا على فيسبوك</span>
+            </span>
+            <span style="font-size: 1.1rem; opacity: 0.85;">↗</span>
+          </a>
+        </div>
+      </article>
+    </section>
+
+    <footer class="site-footer">
+      <p class="footer-highlight">مصلى المؤنسات الغاليات</p>
+      <p>الإقامة الجامعية شمومة للبنات · مستغانم</p>
+      <p style="margin-top: 6px; font-size: 0.8rem; opacity: 0.85;">إخلاص · محبة · جنان</p>
+    </footer>
+  </div>
+
+  <script>
+    /**
+     * Seamless Tab Switcher without page reloading
+     */
+    function switchTab(tabId) {
+      const navButtons = document.querySelectorAll('.nav-pill');
+      navButtons.forEach(btn => {
+        btn.classList.remove('active');
+        btn.setAttribute('aria-selected', 'false');
+      });
+
+      const contents = document.querySelectorAll('.tab-content');
+      contents.forEach(content => {
+        content.classList.remove('active');
+      });
+
+      const targetPanel = document.getElementById(tabId);
+      if (targetPanel) {
+        targetPanel.classList.add('active');
+      }
+
+      const activeBtn = document.querySelector(`.nav-pill[data-tab="${tabId}"]`);
+      if (activeBtn) {
+        activeBtn.classList.add('active');
+        activeBtn.setAttribute('aria-selected', 'true');
+        
+        activeBtn.scrollIntoView({
+          behavior: 'smooth',
+          inline: 'center',
+          block: 'nearest'
+        });
+      }
+
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const pills = document.querySelectorAll('.nav-pill');
+      pills.forEach(pill => {
+        pill.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetTab = pill.getAttribute('data-tab');
+          if (targetTab) {
+            switchTab(targetTab);
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
